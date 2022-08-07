@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/logward-assignment/static/css/main.ed7f6617.css",
+    "main.js": "/logward-assignment/static/js/main.afb1788a.js",
+    "static/js/787.d4c0cdb5.chunk.js": "/logward-assignment/static/js/787.d4c0cdb5.chunk.js",
+    "index.html": "/logward-assignment/index.html",
+    "main.ed7f6617.css.map": "/logward-assignment/static/css/main.ed7f6617.css.map",
+    "main.afb1788a.js.map": "/logward-assignment/static/js/main.afb1788a.js.map",
+    "787.d4c0cdb5.chunk.js.map": "/logward-assignment/static/js/787.d4c0cdb5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed7f6617.css",
+    "static/js/main.afb1788a.js"
+  ]
+}
