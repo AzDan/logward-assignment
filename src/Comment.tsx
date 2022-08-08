@@ -29,6 +29,7 @@ type Props = {
 }
 
 const Comment = (props: Props) => {
+  //inital states
   const [isEdit, setIsEdit] = useState(false)
   const [comment, editComment] = useState(props.data.text)
   const [isReply, setIsReply] = useState(false)
@@ -40,9 +41,11 @@ const Comment = (props: Props) => {
       <CommentBox>
         <DeleteButton onClick={() => props.deleteComment(props.data.id,null)}/>
         <Name>{props.data.name}</Name>
+        {/* when date object exists */}
         {props.data.date && typeof(props.data.date)=="object" &&
           <Date>{props.data.date.getDate()} {monthArray[props.data.date.getMonth()]}, {props.data.date.getFullYear()}</Date>
         }
+        {/* when we get JSON parsed data from localstorage */}
         {props.data.date && typeof(props.data.date)=="string" &&
           <Date>{props.data.date.substring(8,10)} {monthArray[parseInt(props.data.date.substring(5,7))-1]}, {props.data.date.substring(0,4)}</Date>
         }

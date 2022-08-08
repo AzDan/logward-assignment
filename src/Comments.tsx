@@ -9,6 +9,7 @@ type Props = {
 }
 
 const Comments = (props: Props) => {
+  //initial states
   const [comments, setComments] = useState([{
     data: {
       name: 'Alex',
@@ -69,12 +70,14 @@ const Comments = (props: Props) => {
       setDirection('column')
   }
 
+  //get comments from localstorage if exist
   useEffect(() => {
     const data = localStorage.getItem('commentData')
     if(data!=null)
       setComments(JSON.parse(data))
   },[])
 
+  //add new comment, update localstorage
   useEffect(() => {
     if(props.newComment !== undefined){
       const newState = JSON.parse(JSON.stringify(comments))
@@ -150,6 +153,7 @@ const Comments = (props: Props) => {
     </>
   )
 }
+
 const CommentsContainer = styled.div<{flexDirection: string}>`
   display: flex;
   flex-direction: ${props => props.flexDirection};

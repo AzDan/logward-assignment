@@ -18,7 +18,7 @@ const Post = (props: Props) => {
   }
 
   const validateComment = () => {
-    //check name
+    //check name and comment
     if(name!=='' && comment!=='') {
       const commentData = {
         data:{

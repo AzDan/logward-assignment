@@ -6,6 +6,7 @@ import Post from './Post';
 function App() {
   const [newComment, setNewComment] = useState<Comment>();
 
+  //function to pass down as prop to Comments and Post
   const passNewCommentToPost = (comment: Comment) => {
     setNewComment(comment);
   }
