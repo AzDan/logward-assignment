@@ -13,10 +13,20 @@ const Reply = (props: Props) => {
   const [isEdit, setIsEdit] = useState(false)
   const [comment, editComment] = useState(props.data?.text)
   
+  const monthArray = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  
   return (
     <ReplyContainer>
       <DeleteButton onClick={() => props.deleteReply(props.data?.id, props.pid)}/>
       <Name>{props.data?.name}</Name>
+      {/* when date object exists */}
+      {props.data.date && typeof(props.data.date)=="object" &&
+          <Date>{props.data.date.getDate()} {monthArray[props.data.date.getMonth()]}, {props.data.date.getFullYear()}</Date>
+        }
+        {/* when we get JSON parsed data from localstorage */}
+        {props.data.date && typeof(props.data.date)=="string" &&
+          <Date>{props.data.date.substring(8,10)} {monthArray[parseInt(props.data.date.substring(5,7))-1]}, {props.data.date.substring(0,4)}</Date>
+        }
       {isEdit ? 
           <textarea value={comment} onChange={(e) => editComment(e.target.value)}></textarea>
           : 
@@ -37,6 +47,14 @@ const Text = styled.p`
 const Name = styled.p`
   font-weight: 600;
 `
+
+const Date = styled.div`
+  font-size: 12px;
+  position: absolute;
+  top: 8px;
+  right: 20px;
+`
+
 const DeleteButton = styled.span`
   width: 30px;
   height: 30px;
